@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>BASIC "XML" INPUT PAGE</title>
+</head>
+<body onload=setup()>
+	Paste "XML" below
+	<br>
+	<form action="">
+    <textarea id='inStr' rows="15"></textarea>
+	<input type="submit">
+    </form>
+    <br>
+    Sample "XML":
+    <br>
+    <textarea id="ta" rows="5"><a>first</a><b><c>second</c><d><f>stuff</f><g>third</g></d></b><e>fourth</e></textarea>
+
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script>
+var socket = io();
+$('form').submit(function(){
+	if($('#ta').val() != '') {
+      socket.emit('toParse', $('#inStr').val());
+      $('#inStr').val('');
+    }
+    return false;
+});
+socket.on('parsedData', function(msg){
+    $('#inStr').val(msg);
+  });
+
+  function setup(){
+  	socket.emit('sign-on');
+  }
+</script>
+
+</body>
+</html>

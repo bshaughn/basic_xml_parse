@@ -1,0 +1,26 @@
+
+HI! Here's how to use this.
+
+1) Extract to folder
+2) Run in folder: $npm install in folder
+3) Run node parse-server.js
+4) Open browser, point to localhost:8081
+5) Paste XML sample into field and submit. 
+
+--comment from basic-xml-parse.js--
+/*
+   Welcome to the world's most basic "XML" parser, written in an afternoon.
+   It doesn't look for comments, it assumes no extra whitespace, etc.
+   All testing has been done on small inputs (<200 characters)
+
+   In the interest of providing a timely solution, there is redundancy in this module.
+   	  Refactoring can reduce file size, and complicate readability
+      as well as maintenance, and may introduce corner cases. 
+
+   This version includes:
+     -basic bracket checking to make sure we have 
+       correctly matching opening and closing bracket pairs.
+     -tag checking to make sure opening and closing tags match.
+     -nested dictionaries (keys can have values which are dictionaries)
+*/
+ 
